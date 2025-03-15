@@ -3,6 +3,7 @@ let size = 16;
 
 // Create a size*size grid of square divs
 function createGrid(){
+    container.textContent = "";
     const sqSize = 100 / size;
     for(let i = 0; i < size ; i++){
     const row = document.createElement("div");
@@ -26,9 +27,17 @@ function setHoverEffect(){
     const squares = document.querySelectorAll(".square");
     squares.forEach((square) =>{
         square.addEventListener("mouseover", ()=>{
-            square.style.backgroundColor = "black";
+            square.style.backgroundColor = randomColor();
         });
     });
+}
+
+// get a random color
+function randomColor(){
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b})`;
 }
 
 
